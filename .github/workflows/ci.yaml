@@ -50,6 +50,8 @@ jobs:
       - uses: https://github.com/actions/checkout@v4
       - name: Set up Docker Buildx
         uses: https://github.com/docker/setup-buildx-action@v3
+        with:
+          driver: docker-container
         env:
           DOCKER_HOST: tcp://docker-in-docker:2375
       - name: Build and push Docker image
