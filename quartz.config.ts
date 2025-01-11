@@ -16,17 +16,12 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-<<<<<<< HEAD
-    baseUrl: "epicartificials.com",
+    baseUrl: "blog.zloutek1.com",
     ignorePatterns: [
       "private", 
       "5 - Templates", 
       ".obsidian"
     ],
-=======
-    baseUrl: "blog.zloutek1.com",
-    ignorePatterns: ["private", "templates", ".obsidian"],
->>>>>>> 33c7ea6670967f7113ecfa16a3fd262013db6a9d
     defaultDateType: "created",
     generateSocialImages: false,
     theme: {
@@ -84,11 +79,7 @@ const config: QuartzConfig = {
       Plugin.Latex({ renderEngine: "katex" }),
     ],
     filters: [
-<<<<<<< HEAD
       Plugin.RemoveDrafts(), 
-=======
-      Plugin.RemoveDrafts(),
->>>>>>> 33c7ea6670967f7113ecfa16a3fd262013db6a9d
       Plugin.ExplicitPublish()
     ],
     emitters: [
