@@ -14,7 +14,7 @@ jobs:
     if: ${{ github.repository == 'jackyzha0/quartz' }}
     strategy:
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
+        os: [docker]
     runs-on: ${{ matrix.os }}
     permissions:
       contents: write
