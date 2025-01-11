@@ -45,7 +45,6 @@ jobs:
 
   publish:
     needs: build-and-test
-    if: github.ref == 'refs/heads/main'
     runs-on: docker
     steps:
       - uses: https://github.com/actions/checkout@v4
