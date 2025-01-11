@@ -167,7 +167,7 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
               const strings = Object.values(file.data.frontmatter ?? {})
                 .flatMap((vs) => (Array.isArray(vs) ? vs : [vs]))
                 .filter((v) => typeof v === "string")
-              
+
               for (const string of strings) {
                 // the regex is /g so we have to do this to get the captures
                 // exec doesn't work because it's stateful and so returns null every other time (very bad)

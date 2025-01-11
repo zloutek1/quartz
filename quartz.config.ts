@@ -17,11 +17,7 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "blog.zloutek1.com",
-    ignorePatterns: [
-      "private", 
-      "5 - Templates", 
-      ".obsidian"
-    ],
+    ignorePatterns: ["private", "5 - Templates", ".obsidian"],
     defaultDateType: "created",
     generateSocialImages: false,
     theme: {
@@ -78,10 +74,7 @@ const config: QuartzConfig = {
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
     ],
-    filters: [
-      Plugin.RemoveDrafts(), 
-      Plugin.ExplicitPublish()
-    ],
+    filters: [Plugin.RemoveDrafts(), Plugin.ExplicitPublish()],
     emitters: [
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
