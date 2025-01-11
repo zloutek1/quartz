@@ -44,11 +44,11 @@ jobs:
       - name: Ensure Quartz builds, check bundle info
         run: npx quartz build --bundleInfo
 
-    restart-container:
-      needs: build-and-test
-      runs-on: docker
-      steps:
-        - name: Restart Docker container
-          run: |
-            docker stop blog || true
-            docker rm blog || true
+  restart-container:
+    needs: build-and-test
+    runs-on: docker
+    steps:
+      - name: Restart Docker container
+        run: |
+          docker stop blog || true
+          docker rm blog || true
