@@ -1,0 +1,12 @@
+services:
+  blog:
+    container_name: blog
+    build: .
+    volumes:
+      - /Users/tomas/Documents/obsidian/vault/:/usr/src/app/content:ro
+    networks:
+      - traefik
+
+networks:
+  traefik:
+    external: true
