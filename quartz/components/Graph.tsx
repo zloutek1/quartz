@@ -21,8 +21,8 @@ export interface D3Config {
 }
 
 interface GraphOptions {
-  localGraph: Partial<D3Config> | undefined
-  globalGraph: Partial<D3Config> | undefined
+  localGraph?: Partial<D3Config>
+  globalGraph?: Partial<D3Config>
 }
 
 const defaultOptions: GraphOptions = {

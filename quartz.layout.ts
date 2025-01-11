@@ -26,7 +26,7 @@ export const defaultContentPageLayout: PageLayout = {
   right: [
     Component.Search(),
     Component.Darkmode(),
-    Component.Graph({ localGraph: { fontSize: 0.8 }, globalGraph: {} }),
+    Component.Graph({ localGraph: { fontSize: 0.8 } }),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
