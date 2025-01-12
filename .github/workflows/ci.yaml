@@ -46,6 +46,8 @@ jobs:
   publish:
     # needs: build-and-test
     runs-on: docker
+    container:
+      network: forgejo
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
