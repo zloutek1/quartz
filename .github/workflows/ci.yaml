@@ -67,4 +67,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: git.zloutek1.com/zloutek1/blog:latest
+          tags: localhost:5000/zloutek1/blog:latest
