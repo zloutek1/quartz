@@ -68,4 +68,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: zloutek1/blog:latest
+          tags: forgejo:5000/zloutek1/blog:latest
