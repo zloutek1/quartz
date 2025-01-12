@@ -56,8 +56,6 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
         with:
-          driver: docker-container
-          driver-opts: "network=forgejo"
           config-inline: |
             [registry."forgejo:3000"]
               http = true
@@ -66,7 +64,7 @@ jobs:
       - name: Login docker registry
         uses: docker/login-action@v3
         with:
-          registry: ${{ secrets.PRIVATE_REGISTRY_URL }}
+          registry: "forgejo:3000"
           username: ${{ secrets.PRIVATE_REGISTRY_USERNAME }}
           password: ${{ secrets.PRIVATE_REGISTRY_PASSWORD }}
 
@@ -75,4 +73,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.PRIVATE_REGISTRY_URL }}/zloutek1/blog:latest
+          tags: "forgejo:3000/zloutek1/blog:latest"
