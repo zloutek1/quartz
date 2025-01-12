@@ -57,7 +57,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
         with:
           config-inline: |
-            [registry.${{ secrets.PRIVATE_REGISTRY_URL }}]
+            [registry.forgejo]
               http = true
               insecure = false
 
