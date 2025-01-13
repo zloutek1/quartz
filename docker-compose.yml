@@ -1,9 +1,7 @@
 services:
   blog:
     container_name: blog
-    build: .
-    volumes:
-      - /Users/tomas/Documents/obsidian/vault/:/usr/src/app/content:ro
+    image: git.zloutek1.com/zloutek1/blog:latest
     networks:
       - traefik
 
