@@ -59,7 +59,7 @@ jobs:
           config-inline: |
             [registry."forgejo:3000"]
               http = true
-              insecure = false
+              insecure = true
 
       - name: Login docker registry
         uses: docker/login-action@v3
@@ -73,4 +73,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: "forgejo:3000/zloutek1/blog:latest"
+          tags: "forgejo:3000/zloutek1/blog:${{gitea.sha}},forgejo:3000/zloutek1/blog:latest"
