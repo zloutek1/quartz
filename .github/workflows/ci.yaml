@@ -61,7 +61,7 @@ jobs:
       - name: Login docker registry
         uses: docker/login-action@v3
         with:
-          registry: "localhost:3001"
+          registry: "forgejo:3000"
           username: ${{ secrets.PRIVATE_REGISTRY_USERNAME }}
           password: ${{ secrets.PRIVATE_REGISTRY_PASSWORD }}
 
@@ -70,4 +70,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: "localhost:3001/zloutek1/blog:${{gitea.sha}},localhost:3001/zloutek1/blog:latest"
+          tags: "forgejo:3000/zloutek1/blog:${{gitea.sha}},forgejo:3000/zloutek1/blog:latest"
