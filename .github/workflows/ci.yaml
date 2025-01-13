@@ -60,7 +60,7 @@ jobs:
           config-inline: |
             [registry."forgejo:3000"]
             http = true
-            insecure = true 
+            insecure = true
 
       - name: Login docker registry
         uses: docker/login-action@v3
