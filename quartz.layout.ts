@@ -20,6 +20,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.PageTitle(),
     Component.ArticleTitle(),
     Component.ContentMeta(),
+    Component.PageProperties(),
     Component.TagList(),
   ],
   left: [],
