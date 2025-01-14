@@ -1,16 +1,45 @@
 name: Build and Test
 
 on:
-  pull_request:
-    branches:
-      - v4
   push:
     branches:
       - v4
-  workflow_dispatch:
 
 jobs:
+  update-submodules:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Fix up git URLs
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --global --add url."https://${{ secrets.TOKEN_GITHUB }}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
+          git config --global --add url."https://${{ secrets.TOKEN_GITHUB }}:x-oauth-basic@github.com/".insteadOf "git@github.com:"
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: recursive
+      
+      - name: Update submodule
+        run: |
+          # Move into each submodule directory and update
+          git submodule foreach git pull origin main
+          
+          # Check if there are any changes
+          if [[ -n $(git status --porcelain) ]]; then
+            # Commit the changes
+            git add .
+            git commit -m "chore: update submodules to latest version"
+            git push
+          else
+            echo "No updates found for submodules"
+          fi
+
   build-and-test:
+    needs: update-submodules
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -53,7 +82,7 @@ jobs:
           git config --global --add url."https://${{ secrets.TOKEN_GITHUB }}:x-oauth-basic@github.com/".insteadOf "git@github.com:"
 
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
 
