@@ -5,6 +5,10 @@ on:
     branches:
       - v4
 
+  repository_dispatch:
+    types:
+      - webhook
+
 jobs:
   update-submodules:
     runs-on: ubuntu-latest
