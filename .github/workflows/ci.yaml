@@ -8,7 +8,7 @@ on:
 jobs:
   update-submodules:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Fix up git URLs
         run: |
@@ -22,12 +22,12 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
-      
+
       - name: Update submodule
         run: |
           # Move into each submodule directory and update
           git submodule foreach git pull origin main
-          
+
           # Check if there are any changes
           if [[ -n $(git status --porcelain) ]]; then
             # Commit the changes
