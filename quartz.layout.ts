@@ -22,12 +22,16 @@ export const sharedPageComponents: SharedLayout = {
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
     Component.MobileOnly(Component.Search()),
-    Component.Breadcrumbs(),
+    Component.Breadcrumbs({
+      showCurrentPage: false
+    }),
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.PageProperties({ fieldRenderers: { publish: () => null } }),
   ],
-  left: [],
+  left: [
+    Component.DesktopOnly(Component.RecentNotes()),
+  ],
   right: [
     Component.Graph({
       localGraph: {
